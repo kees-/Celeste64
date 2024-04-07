@@ -27,7 +27,7 @@ public class SkinnedTemplate
 		Root = model;
 		Template = SharpGLTF.Runtime.SceneTemplate.Create(model.DefaultScene);
 		Parts = new List<MeshPrimitive>[model.LogicalMeshes.Count];
-		
+
 		// load the model's images
 		foreach (var logicalImage in model.LogicalImages)
 		{
@@ -76,7 +76,7 @@ public class SkinnedTemplate
 
 				foreach (var index in primitive.GetIndices())
 					Indices.Add(vertexCount + (int)index);
-				
+
 				part.Add(new()
 				{
 					Material = primitive.Material?.LogicalIndex ?? 0,
@@ -104,8 +104,8 @@ public class SkinnedTemplate
 
 			// figure out which texture to use by just using the first texture found
 			foreach (var channel in logicalMat.Channels)
-				if (channel.Texture != null && 
-					channel.Texture.PrimaryImage != null && 
+				if (channel.Texture != null &&
+					channel.Texture.PrimaryImage != null &&
 					textures.TryGetValue(channel.Texture.PrimaryImage.Content, out var texture))
 				{
 					Materials[i].Texture = texture;

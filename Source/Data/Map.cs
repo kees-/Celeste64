@@ -179,10 +179,10 @@ public class Map
 		{
 			var rng = new Rng();
 			var n = floatingDecorations.Count;
-			while (n > 1) 
+			while (n > 1)
 			{
 				int k = rng.Int(n--);
-                (floatingDecorations[k], floatingDecorations[n]) = 
+                (floatingDecorations[k], floatingDecorations[n]) =
 				(floatingDecorations[n], floatingDecorations[k]);
             }
         }
@@ -286,7 +286,7 @@ public class Map
 			if (entity.Properties.ContainsKey("origin"))
 				it.Position = Vec3.Transform(entity.GetVectorProperty("origin", Vec3.Zero), baseTransform);
 
-			if (entity.Properties.ContainsKey("_tb_group") && 
+			if (entity.Properties.ContainsKey("_tb_group") &&
 				groupNames.TryGetValue(entity.GetIntProperty("_tb_group", -1), out var groupName))
 				it.GroupName = groupName;
 
@@ -304,7 +304,7 @@ public class Map
 				bounds.Max -= it.Position;
 				it.LocalBounds = bounds;
 			}
-			
+
 			world.Add(it);
 		}
 
@@ -315,7 +315,7 @@ public class Map
 			// spawns ther player if the world entry is this checkpoint
 			// OR the world entry has no checkpoint and we're the start
 			// OR the world entry checkpoint is misconfigured and we're the start
-			var spawnsPlayer = 
+			var spawnsPlayer =
 				(world.Entry.CheckPoint == name) ||
 				(string.IsNullOrEmpty(world.Entry.CheckPoint) && name == StartCheckpoint) ||
 				(!checkpoints.Contains(world.Entry.CheckPoint) && name == StartCheckpoint);
@@ -403,7 +403,7 @@ public class Map
 	private BoundingBox CalculateSolidBounds(List<SledgeSolid> collection, in Matrix transform)
 	{
 		BoundingBox box = new();
-		
+
 		if (collection.Count > 0)
 			box = CalculateSolidBounds(collection[0]);
 

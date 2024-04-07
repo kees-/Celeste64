@@ -36,7 +36,7 @@ public class World : Scene
 	// Pause Menu, only drawn when actually paused
 	private readonly Menu pauseMenu = new();
 	private AudioHandle pauseSnapshot;
-	
+
 	// makes the Strawberry UI wiggle when one is collected
 	private float strawbCounterWiggle = 0;
 	private float strawbCounterCooldown = 0;
@@ -315,7 +315,7 @@ public class World : Scene
 		// toggle debug draw
 		if (Input.Keyboard.Pressed(Keys.F1))
 			DebugDraw = !DebugDraw;
-		
+
 		// normal game loop
 		if (!Paused)
 		{
@@ -431,7 +431,7 @@ public class World : Scene
 
 			if (!solid.WorldBounds.Intersects(box))
 				continue;
-				
+
 			var verts = solid.WorldVertices;
 			var faces = solid.WorldFaces;
 
@@ -448,7 +448,7 @@ public class World : Scene
 				// check against each triangle in the face
 				for (int i = 0; i < face.VertexCount - 2; i ++)
 				{
-					if (Utils.RayIntersectsTriangle(point, direction, 
+					if (Utils.RayIntersectsTriangle(point, direction,
 						verts[face.VertexStart + 0],
 						verts[face.VertexStart + i + 1],
 						verts[face.VertexStart + i + 2], out float dist))
@@ -525,7 +525,7 @@ public class World : Scene
 							continue;
 
 						var pushout = (radius - diff.Length()) * diff.Normalized();
-						if (closestTriangleOnPlane.HasValue && pushout.LengthSquared() < 
+						if (closestTriangleOnPlane.HasValue && pushout.LengthSquared() <
 							closestTriangleOnPlane.Value.Pushout.LengthSquared())
 							continue;
 
@@ -656,7 +656,7 @@ public class World : Scene
 			foreach (var actor in All<ICastPointShadow>())
 			{
 				var alpha = (actor as ICastPointShadow)!.PointShadowAlpha;
-				if (alpha > 0 && 
+				if (alpha > 0 &&
 					Camera.Frustum.Contains(actor.WorldBounds.Conflate(actor.WorldBounds - Vec3.UnitZ * 1000)))
 					sprites.Add(Sprite.CreateShadowSprite(this, actor.Position + Vec3.UnitZ, alpha));
 			}
@@ -686,7 +686,7 @@ public class World : Scene
 			var shift = new Vec3(Camera.Position.X, Camera.Position.Y, Camera.Position.Z);
 			for (int i = 0; i < skyboxes.Count; i++)
 			{
-				skyboxes[i].Render(Camera, 
+				skyboxes[i].Render(Camera,
 				Matrix.CreateRotationZ(i * GeneralTimer * 0.01f) *
 				Matrix.CreateScale(1, 1, 0.5f) *
 				Matrix.CreateTranslation(shift), 300);
@@ -709,7 +709,7 @@ public class World : Scene
 
 		// render main models
 		RenderModels(ref state, models, ModelFlags.Default);
-		
+
 		// perform post processing effects
 		ApplyPostEffects();
 
@@ -795,8 +795,8 @@ public class World : Scene
 					var wiggle = 1 + MathF.Sin(strawbCounterWiggle * MathF.Tau * 2) * strawbCounterWiggle * .3f;
 
 					batch.PushMatrix(
-						Matrix3x2.CreateTranslation(0, -UI.IconSize / 2) * 
-						Matrix3x2.CreateScale(wiggle) * 
+						Matrix3x2.CreateTranslation(0, -UI.IconSize / 2) *
+						Matrix3x2.CreateScale(wiggle) *
 						Matrix3x2.CreateTranslation(at + new Vec2(-60 * (1 - Ease.Cube.Out(strawbCounterEase)), UI.IconSize / 2)));
 					UI.Strawberries(batch, Save.CurrentRecord.Strawberries.Count, Vec2.Zero);
 					batch.PopMatrix();
@@ -814,7 +814,7 @@ public class World : Scene
 				var scroll = -new Vec2(1.25f, 0.9f) * (float)(Time.Duration.TotalSeconds) * 0.05f;
 
 				batch.PushBlend(BlendMode.Add);
-				batch.Image(Assets.Textures["overworld/overlay"], 
+				batch.Image(Assets.Textures["overworld/overlay"],
 					bounds.TopLeft, bounds.TopRight, bounds.BottomRight, bounds.BottomLeft,
 					scroll + new Vec2(0, 0), scroll + new Vec2(1, 0), scroll + new Vec2(1, 1), scroll + new Vec2(0, 1),
 					Color.White * 0.10f);

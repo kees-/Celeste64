@@ -13,7 +13,7 @@ public class Skybox
 		Texture = texture;
 
 		var block = Texture.Width / 4;
-		
+
 		var u = new Subtexture(Texture, new Rect(block * 0, block * 0, block, block));
 		var d = new Subtexture(Texture, new Rect(block * 0, block * 2, block, block));
 		var n = new Subtexture(Texture, new Rect(block * 0, block * 1, block, block));
@@ -29,7 +29,7 @@ public class Skybox
 		var v5 = new Vec3(1, -1, -1);
 		var v6 = new Vec3(1, 1, -1);
 		var v7 = new Vec3(-1, 1, -1);
-		
+
 		var verts = new List<SpriteVertex>();
 		var indices = new List<int>();
 

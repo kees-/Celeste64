@@ -24,8 +24,8 @@ public class Cassette : Actor, IHaveModels, IPickup, IHaveSprites, ICastPointSha
 
 	public float PickupRadius => 10;
 
-	public bool IsCollected => 
-		!string.IsNullOrEmpty(Map) && 
+	public bool IsCollected =>
+		!string.IsNullOrEmpty(Map) &&
 		Save.CurrentRecord.CompletedSubMaps.Contains(Map);
 
 	public override void Added()

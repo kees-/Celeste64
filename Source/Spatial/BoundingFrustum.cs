@@ -81,7 +81,7 @@ public struct BoundingFrustum
 	}
 
 	private void CreatePlanes()
-	{            
+	{
 		planes[0] = new Plane(-matrix.M13, -matrix.M23, -matrix.M33, -matrix.M43);
 		planes[1] = new Plane(matrix.M13 - matrix.M14, matrix.M23 - matrix.M24, matrix.M33 - matrix.M34, matrix.M43 - matrix.M44);
 		planes[2] = new Plane(-matrix.M14 - matrix.M11, -matrix.M24 - matrix.M21, -matrix.M34 - matrix.M31, -matrix.M44 - matrix.M41);
@@ -105,17 +105,17 @@ public struct BoundingFrustum
 		//                             N1 . ( N2 * N3 )
 		//
 		// Note: N refers to the normal, d refers to the displacement. '.' means dot product. '*' means cross product
-		
+
 		var f = -Vec3.Dot(a.Normal, Vec3.Cross(b.Normal, c.Normal));
 		var v1 = Vec3.Cross(b.Normal, c.Normal) * a.D;
 		var v2 = Vec3.Cross(c.Normal, a.Normal) * b.D;
 		var v3 = Vec3.Cross(a.Normal, b.Normal) * c.D;
-		
+
 		result.X = (v1.X + v2.X + v3.X) / f;
 		result.Y = (v1.Y + v2.Y + v3.Y) / f;
 		result.Z = (v1.Z + v2.Z + v3.Z) / f;
 	}
-	
+
 	private static void NormalizePlane(ref Plane p)
 	{
 		float factor = 1f / p.Normal.Length();
@@ -125,5 +125,3 @@ public struct BoundingFrustum
 		p.D *= factor;
 	}
 }
-
-

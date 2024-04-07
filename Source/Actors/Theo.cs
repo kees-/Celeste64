@@ -30,8 +30,7 @@ public class Theo : NPC
 	}
 
 	private void CheckForDialog()
-	{ 
+	{
 		InteractEnabled = Loc.HasLines($"Theo{Save.CurrentRecord.GetFlag(TALK_FLAG) + 1}");
 	}
 }
-

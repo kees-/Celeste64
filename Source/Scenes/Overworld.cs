@@ -61,9 +61,9 @@ public class Overworld : Scene
 				if (Complete && Assets.Textures.GetValueOrDefault("overworld/strawberry") is {} texture)
 				{
 					batch.Image(
-						new Subtexture(texture), 
-						bounds.BottomRight - new Vec2(50, 0), 
-						new Vec2(texture.Width / 2, texture.Height), 
+						new Subtexture(texture),
+						bounds.BottomRight - new Vec2(50, 0),
+						new Vec2(texture.Width / 2, texture.Height),
 						Vec2.One * 0.50f, 0, Color.White);
 				}
 
@@ -104,13 +104,13 @@ public class Overworld : Scene
 			if (shine > 0)
 			{
 				batch.Line(
-					bounds.BottomLeft + new Vec2(-50 + shine * 50, 50), 
-					bounds.TopCenter + new Vec2(shine * 50, -50), 120, 
+					bounds.BottomLeft + new Vec2(-50 + shine * 50, 50),
+					bounds.TopCenter + new Vec2(shine * 50, -50), 120,
 					Color.White * shine * 0.30f);
 
 				batch.Line(
-					bounds.BottomLeft + new Vec2(-50 + 100 + shine * 120, 50), 
-					bounds.TopCenter + new Vec2(100 + shine * 120, -50), 70, 
+					bounds.BottomLeft + new Vec2(-50 + 100 + shine * 120, 50),
+					bounds.TopCenter + new Vec2(100 + shine * 120, -50), 70,
 					Color.White * shine * 0.30f);
 			}
 
@@ -141,7 +141,7 @@ public class Overworld : Scene
 	public Overworld(bool startOnLastSelected)
 	{
 		Music = "event:/music/mus_title";
-		
+
 		foreach (var level in Assets.Levels)
 			entries.Add(new(level));
 
@@ -186,7 +186,7 @@ public class Overworld : Scene
 		for (int i = 0; i < entries.Count; i++)
 		{
 			var it = entries[i];
-			Calc.Approach(ref it.HighlightEase, index == i ? 1.0f : 0.0f, Time.Delta * 8.0f); 
+			Calc.Approach(ref it.HighlightEase, index == i ? 1.0f : 0.0f, Time.Delta * 8.0f);
 			Calc.Approach(ref it.SelectionEase, index == i && (state == States.Selected || state == States.Restarting) ? 1.0f : 0.0f, Time.Delta * 4.0f);
 
 			if (it.SelectionEase >= 0.50f && state == States.Selected)
@@ -196,7 +196,7 @@ public class Overworld : Scene
 
 		if (Game.Instance.IsMidTransition)
 			return;
-		
+
 		if (state == States.Selecting)
 		{
 			var was = index;
@@ -321,7 +321,7 @@ public class Overworld : Scene
 				shift += Ease.Cube.InOut(selectedEase) * 50;
 			var position = new Vec3((i - slide) * 60, shift, 0);
 			var rotation = Ease.Cube.InOut(it.SelectionEase);
-			var matrix = 
+			var matrix =
 				Matrix.CreateScale(new Vec3(it.SelectionEase >= 0.50f ? -1 : 1, 1, 1)) *
 				Matrix.CreateRotationX(wobble.Y * it.HighlightEase) *
 				Matrix.CreateRotationZ(wobble.X * it.HighlightEase) *
@@ -363,13 +363,13 @@ public class Overworld : Scene
 
 			batch.PushBlend(BlendMode.Add);
 			batch.PushSampler(new TextureSampler(TextureFilter.Linear, TextureWrap.Repeat, TextureWrap.Repeat));
-			batch.Image(Assets.Textures["overworld/overlay"], 
+			batch.Image(Assets.Textures["overworld/overlay"],
 				bounds.TopLeft, bounds.TopRight, bounds.BottomRight, bounds.BottomLeft,
 				scroll + new Vec2(0, 0), scroll + new Vec2(1, 0), scroll + new Vec2(1, 1), scroll + new Vec2(0, 1),
 				Color.White * 0.10f);
 			batch.PopBlend();
 			batch.PopSampler();
-			batch.Image(Assets.Textures["overworld/vignette"], 
+			batch.Image(Assets.Textures["overworld/vignette"],
 				bounds.TopLeft, bounds.TopRight, bounds.BottomRight, bounds.BottomLeft,
 				new Vec2(0, 0), new Vec2(1, 0), new Vec2(1, 1), new Vec2(0, 1),
 				Color.White * 0.30f);

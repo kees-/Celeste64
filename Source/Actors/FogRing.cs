@@ -58,7 +58,7 @@ public class FogRing : Actor, IHaveModels
     {
 		model.Flags = ModelFlags.Cutout;
 		model.CullMode = CullMode.None;
-		model.Transform = 
+		model.Transform =
 			Matrix.CreateRotationZ(World.GeneralTimer * speed + offset) *
 			Matrix.CreateScale(radius, radius, height);
 		populate.Add((this, model));

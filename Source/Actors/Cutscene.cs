@@ -95,7 +95,7 @@ public class Cutscene : Actor, IHaveUI
 			saying.Ease -= Time.Delta * 10.0f;
 			yield return Co.SingleFrame;
 		}
-		
+
 		dialogSnapshot.Stop();
 		saying = new();
 	}

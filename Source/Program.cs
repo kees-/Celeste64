@@ -29,7 +29,7 @@ class Program
 			HandleError(e);
 		}
 	}
-	
+
 	private static void HandleError(Exception e)
 	{
 		// write error to console in case they can see stdout

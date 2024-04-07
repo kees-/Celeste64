@@ -9,7 +9,7 @@ public static class Audio
 {
 	private class Module : Foster.Framework.Module
 	{
-		public override void Update() 
+		public override void Update()
 			=> Audio.Update();
 
 		public override void Shutdown()
@@ -61,11 +61,11 @@ public static class Audio
 			return;
 		isResolverSet = true;
 
-		var path 
-			=  Path.GetDirectoryName(AppContext.BaseDirectory) 
+		var path
+			=  Path.GetDirectoryName(AppContext.BaseDirectory)
 			?? Directory.GetCurrentDirectory();
 
-		NativeLibrary.SetDllImportResolver(typeof(FMOD.Studio.System).Assembly, 
+		NativeLibrary.SetDllImportResolver(typeof(FMOD.Studio.System).Assembly,
 			(name, assembly, dllImportSearchPath) =>
 			{
 				name = Path.GetFileNameWithoutExtension(name);
@@ -210,7 +210,7 @@ public static class Audio
 			Log.Warning($"Failed to create Audio Event Instance: {result}");
 			return new AudioHandle();
 		}
-		
+
 		return new AudioHandle(instance);
 	}
 

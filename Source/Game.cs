@@ -71,7 +71,7 @@ public class Game : Module
 	public override void Startup()
 	{
 		instance = this;
-		
+
 		Time.FixedStep = true;
 		App.VSync = true;
 		App.Title = GameTitle;
@@ -90,7 +90,7 @@ public class Game : Module
 			var it = scenes.Pop();
 			it.Disposed();
 		}
-		
+
 		scenes.Clear();
 		instance = null;
 	}
@@ -115,7 +115,7 @@ public class Game : Module
 		// update top scene
 		if (scenes.TryPeek(out var scene))
 		{
-			var pausing = 
+			var pausing =
 				transitionStep == TransitionStep.FadeIn && transition.FromPause ||
 				transitionStep == TransitionStep.FadeOut && transition.ToPause;
 
@@ -254,7 +254,7 @@ public class Game : Module
 			}
 		}
 
-		
+
 		if (scene is not Celeste64.Startup)
 		{
 			// toggle fullsrceen

@@ -92,11 +92,11 @@ public class IntroCar : Solid
     public override void CollectModels(List<(Actor Actor, Model Model)> populate)
     {
 		// hack: don't use actor translation for wheels....
-		wheels.Transform = 
-			Matrix.CreateTranslation((spawnPoint - Position) / scale) * 
+		wheels.Transform =
+			Matrix.CreateTranslation((spawnPoint - Position) / scale) *
 			Matrix.CreateScale(scale);
-		
-		body.Transform = 
+
+		body.Transform =
 			Matrix.CreateScale(scale);
 
 		populate.Add((this, wheels));

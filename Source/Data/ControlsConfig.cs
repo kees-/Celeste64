@@ -209,9 +209,9 @@ public class ControlsConfigBindingConverter : JsonConverter<ControlsConfig.Bindi
 
     public override void Write(Utf8JsonWriter writer, ControlsConfig.Binding value, JsonSerializerOptions options)
     {
-		var data = 
-			"\n" + 
-			new string(' ', writer.CurrentDepth * 2) + 
+		var data =
+			"\n" +
+			new string(' ', writer.CurrentDepth * 2) +
 			JsonSerializer.Serialize(value, ControlsConfigBindingContext.Default.Binding);
 		writer.WriteRawValue(data);
     }
@@ -219,7 +219,7 @@ public class ControlsConfigBindingConverter : JsonConverter<ControlsConfig.Bindi
 
 [JsonSourceGenerationOptions(
 	WriteIndented = false,
-	UseStringEnumConverter = true, 
+	UseStringEnumConverter = true,
 	DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
 	AllowTrailingCommas = true
 )]
@@ -229,7 +229,7 @@ internal partial class ControlsConfigBindingContext : JsonSerializerContext {}
 // normal serialization
 [JsonSourceGenerationOptions(
 	WriteIndented = true,
-	UseStringEnumConverter = true, 
+	UseStringEnumConverter = true,
 	DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
 	AllowTrailingCommas = true,
 	Converters = [typeof(ControlsConfigBindingConverter)]

@@ -16,7 +16,7 @@ public class AngledWipe : ScreenWipe
 
 	public override void Start()
 	{
-		
+
 	}
 
 	public override void Step(float percent)
@@ -57,7 +57,7 @@ public class AngledWipe : ScreenWipe
 
 			// resulting width
 			var w = width * e;
-			
+
 			triangles[v + 0] = new Vec2(x, y);
 			triangles[v + 1] = new Vec2(x + w, y);
 			triangles[v + 2] = new Vec2(x, y + rowHeight);

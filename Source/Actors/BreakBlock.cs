@@ -5,7 +5,7 @@ public class BreakBlock : Solid
 {
 	private static readonly string[] glassShards = ["shard_0", "shard_1", "shard_2"];
 	private static readonly string[] woodShards = ["wood_shard_0", "wood_shard_1", "wood_shard_2"];
-	
+
 	public readonly bool BouncesPlayer;
 	public readonly bool Secret;
 

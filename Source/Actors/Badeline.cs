@@ -37,10 +37,10 @@ public class Badeline : NPC
     public override void Update()
     {
         base.Update();
-		
+
 		// update model
-		Model.Transform = 
-			Matrix.CreateScale(3) * 
+		Model.Transform =
+			Matrix.CreateScale(3) *
 			Matrix.CreateTranslation(0, 0, MathF.Sin(World.GeneralTimer * 2) * 1.0f - 1.5f);
 
 		// update hair
@@ -54,7 +54,7 @@ public class Badeline : NPC
 			hair.Materials[0].Effects = 0;
 			hair.Update(hairMatrix);
 		}
-		
+
     }
 
     public override void Interact(Player player)
@@ -80,8 +80,7 @@ public class Badeline : NPC
     }
 
 	private void CheckForDialog()
-	{ 
+	{
 		InteractEnabled = Loc.HasLines($"Baddy{Save.CurrentRecord.GetFlag(TALK_FLAG) + 1}");
 	}
 }
-

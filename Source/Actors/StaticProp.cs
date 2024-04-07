@@ -22,13 +22,13 @@ public class StaticProp : Actor, IHaveModels, IHavePushout, IListenToAudioCallba
 	}
 
     public override void Update()
-    {	
+    {
 		Calc.Approach(ref scale, 1.0f, Time.Delta);
     }
 
     public void CollectModels(List<(Actor Actor, Model Model)> populate)
 	{
-		Model.Transform = 
+		Model.Transform =
 			Matrix.CreateRotationY(rotation) *
 			Matrix.CreateScale(0.2f * scale);
 		populate.Add((this, Model));

@@ -38,7 +38,7 @@ public class SkinnedModel : Model
 		Template = template;
 		Instance = Template.Template.CreateInstance();
 		Flags = ModelFlags.Default;
-		
+
 		// by default just use the template's materials
 		for (int i = 0; i < Template.Materials.Length; i ++)
 			Materials.Add(Template.Materials[i]);
@@ -175,7 +175,7 @@ public class SkinnedModel : Model
 
 			if (blendDuration > 0)
 				it.Blend = Calc.Approach(it.Blend, (i == playing.Count - 1 ? 1 : 0), Time.Delta / blendDuration);
-			
+
 			playing[i] = it;
 		}
 
@@ -233,8 +233,8 @@ public class SkinnedModel : Model
 					var mat = Materials[primitive.Material];
 
 					state.ApplyToMaterial(mat, statXform.WorldMatrix * BaseTranslation);
-					
-					if (mat.Shader != null && 
+
+					if (mat.Shader != null &&
 						mat.Shader.Has("u_jointMult"))
 						mat.Set("u_jointMult", 0.0f);
 
@@ -259,8 +259,8 @@ public class SkinnedModel : Model
 					var mat = Materials[primitive.Material];
 
 					state.ApplyToMaterial(mat, BaseTranslation);
-					
-					if (mat.Shader != null && 
+
+					if (mat.Shader != null &&
 						mat.Shader.Has("u_jointMat"))
 					{
 						for (int j = 0, n = Math.Min(SkinMatrixCount, skinXform.SkinMatrices.Count); j < n; j ++)

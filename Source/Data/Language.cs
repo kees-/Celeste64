@@ -109,7 +109,7 @@ public static class Loc
 }
 
 [JsonSourceGenerationOptions(
-	WriteIndented = true, 
+	WriteIndented = true,
 	PreferredObjectCreationHandling = JsonObjectCreationHandling.Populate,
 	AllowTrailingCommas = true
 )]

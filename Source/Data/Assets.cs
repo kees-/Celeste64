@@ -254,4 +254,3 @@ public static class Assets
 		return data.HasValue ? new Shader(data.Value) : null;
 	}
 }
-

@@ -30,7 +30,7 @@ public class Granny : NPC
 	}
 
 	private void CheckForDialog()
-	{ 
+	{
 		InteractEnabled = Loc.HasLines($"Granny{Save.CurrentRecord.GetFlag(TALK_FLAG) + 1}");
 	}
 }

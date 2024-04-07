@@ -29,7 +29,7 @@ public class DefaultMaterial : Material
         {
             Log.Warning($"Shader '{Shader?.Name}' is missing '{MatrixUniformName}' uniform");
         }
-        
+
         Texture = texture;
 		Color = Color.White;
 		Effects = 1.0f;

@@ -8,9 +8,9 @@ public class Strawberry : Actor, IHaveModels, IHaveSprites, IPickup, ICastPointS
 
 	public float Pulse => Calc.ClampedMap(World.GeneralTimer % 3, 0, 0.25f, 0, 1);
 	public float PickupRadius => 12;
-	
-	public bool IsCollected => 
-		!string.IsNullOrEmpty(ID) && 
+
+	public bool IsCollected =>
+		!string.IsNullOrEmpty(ID) &&
 		Save.CurrentRecord.Strawberries.Contains(ID);
 
 	public Color HaloColor = 0xeed14f;
@@ -46,7 +46,7 @@ public class Strawberry : Actor, IHaveModels, IHaveSprites, IPickup, ICastPointS
 			Gravity = new Vec3(0, 0, 80),
 			Size = 1.2f
 		});
-		
+
 	}
 
 	public override void Added()
@@ -106,7 +106,7 @@ public class Strawberry : Actor, IHaveModels, IHaveSprites, IPickup, ICastPointS
 		else
 		{
 			Model.MakeMaterialsUnique();
-			Model.Flags = ModelFlags.Transparent;	
+			Model.Flags = ModelFlags.Transparent;
 
 			foreach (var mat in Model.Materials)
 			{

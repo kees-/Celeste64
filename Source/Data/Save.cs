@@ -25,17 +25,17 @@ public class Save
 		public string Checkpoint { get; set; } = string.Empty;
 		public HashSet<string> Strawberries { get; set; } = [];
 		public HashSet<string> CompletedSubMaps { get; set; } = [];
-		public Dictionary<string, int> Flags { get; set; } = []; 
+		public Dictionary<string, int> Flags { get; set; } = [];
 		public int Deaths { get; set; } = 0;
 		public TimeSpan Time { get; set; } = new();
 
-		public int GetFlag(string name, int defaultValue = 0) 
+		public int GetFlag(string name, int defaultValue = 0)
 			=> Flags.TryGetValue(name, out int value) ? value : defaultValue;
 
-		public int SetFlag(string name, int value = 1) 
+		public int SetFlag(string name, int value = 1)
 			=> Flags[name] = value;
 
-		public int IncFlag(string name) 
+		public int IncFlag(string name)
 			=> Flags[name] = GetFlag(name) + 1;
 	}
 

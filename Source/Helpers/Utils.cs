@@ -113,7 +113,7 @@ public static class Utils
 		float dot2p = Vec3.Dot(edge2, toPoint);
 
 		float denominator = dot11 * dot22 - dot12 * dot12;
-		
+
 		u = (dot22 * dot1p - dot12 * dot2p) / denominator;
 		v = (dot11 * dot2p - dot12 * dot1p) / denominator;
 		w = 1 - u - v;
@@ -169,7 +169,7 @@ public static class Utils
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vec2 XY(this Vec3 Vec3)
 		=> new(Vec3.X, Vec3.Y);
-	
+
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vec3 WithXY(this Vec3 Vec3, in Vec2 vec2)
 		=> new(vec2.X, vec2.Y, Vec3.Z);

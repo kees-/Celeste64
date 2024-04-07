@@ -98,7 +98,7 @@ public class Solid : Actor, IHaveModels
 			var mat = Matrix;
 			for (int i = 0; i < LocalVertices.Length; i ++)
 				worldVertices[i] = Vec3.Transform(LocalVertices[i], mat);
-			
+
 			for (int i = 0; i < LocalFaces.Length; i ++)
 			{
 				worldFaces[i] = LocalFaces[i];
@@ -131,7 +131,7 @@ public class Solid : Actor, IHaveModels
 				{
 					if (actor == this || actor is not IRidePlatforms rider)
 						continue;
-					
+
 					if (rider.RidingPlatformCheck(this))
 					{
 						Collidable = false;
