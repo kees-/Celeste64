@@ -1,5 +1,10 @@
 # Celeste 64: Fragments of the Mountain
 
+This is a fork for hacking on the Celeste64 base game and additional maps.
+
+<details>
+  <summary>ExOK's repository information</summary>
+
 This is the source code and general information for _Celeste 64: Fragments of the Mountain_, a game made by the original Celeste developers in under 2 weeks for Celeste's 6th Anniversary. We haven't done a lot of 3D development so much of this is not very optimized, it's coded in libraries mostly intended for 2D games, and we put it all together very, very quickly. Consider this similar to a weekend jam game, so experiment and learn at your own risk!
 
 You can find prebuilt version of the game on [itch.io](https://maddymakesgamesinc.itch.io/celeste64).
@@ -46,3 +51,5 @@ You can find prebuilt version of the game on [itch.io](https://maddymakesgamesin
 - The `Source` folder, with exceptions where noted, is [licensed under MIT](Source/License.txt).
 - The `Source/Audio/FMOD` folder contains bindings and binaries from FMOD.
 - We're fine with non-commercial Mods / Levels / Fan Games using assets from the `Content` folder as long as it's clear it is not made by the Celeste team or endorsed by us.
+
+</details>
