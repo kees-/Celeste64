@@ -6,5 +6,13 @@
     "Strawberries": 30,
     "Preview": "Postcards/ForsakenCity",
     "Map": "1"
+  },
+  {
+    "ID": "KEES_HANDBAGS",
+    "Name": "Handbags",
+    "Label": "Have you not purchased our handbags yet?",
+    "Strawberries": 0,
+    "Preview": "Postcards/Handbags",
+    "Map": "2"
   }
 ]
