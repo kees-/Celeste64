@@ -5,7 +5,7 @@
 "classname" "worldspawn"
 "_tb_textures" "textures;textures/Kees"
 "_tb_def" "external:Celeste64.fgd"
-"skybox" "bsides"
+"skybox" "rhine"
 "snowAmount" "0"
 "snowDirection" "0 0 1"
 "music" "mus_lvl1_bside"
@@ -287,6 +287,12 @@
 }
 // entity 4
 {
+"classname" "Refill"
+"origin" "448 144 400"
+"double" "1"
+}
+// entity 5
+{
 "classname" "func_group"
 "_tb_type" "_tb_layer"
 "_tb_name" "Death"
@@ -295,7 +301,7 @@
 "_tb_layer_locked" "1"
 "_tb_layer_hidden" "1"
 }
-// entity 5
+// entity 6
 {
 "classname" "DeathBlock"
 "_tb_layer" "1"
