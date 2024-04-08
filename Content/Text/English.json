@@ -769,6 +769,23 @@
         "Voice": "credits/credits_13",
         "Text": "And lastly, thank you to Celeste players everywhere.\nYour love and passion for our little game\ncontinues to inspire us."
       }
+    ],
+    "Handbags1": [
+      {
+        "Face": "signpost",
+        "Voice": "sign/general_01",
+        "Text": "I've heard a lot about Celeste lately."
+      },
+      {
+        "Face": "signpost",
+        "Voice": "sign/general_02",
+        "Text": "I don't know about all that stuff."
+      },
+      {
+        "Face": "signpost",
+        "Voice": "sign/general_03",
+        "Text": "My name is Elyana."
+      }
     ]
   }
 }
