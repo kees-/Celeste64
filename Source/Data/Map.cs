@@ -66,7 +66,6 @@ public class Map
 		["Spring"] = new((map, entity) => new Spring()),
 		["Granny"] = new((map, entity) => new Granny()),
 		["Badeline"] = new((map, entity) => new Badeline()),
-		["Theo"] = new((map, entity) => new Theo()),
 		["SignPost"] = new((map, entity) => new Signpost(entity.GetStringProperty("dialog", string.Empty))),
 		["StaticProp"] = new((map, entity) =>
 		{
