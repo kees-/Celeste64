@@ -6,8 +6,8 @@
 "_tb_textures" "Textures"
 "_tb_def" "external:Celeste64.fgd"
 "skybox" "bsides"
-"snowAmount" ".5"
-"snowDirection" "0 0 1"
+"weatherAmount" ".5"
+"weatherDirection" "0 0 1"
 "ambience" "mountain"
 "music" "mus_lvl1_bside"
 }

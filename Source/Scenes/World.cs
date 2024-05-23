@@ -109,8 +109,8 @@ public class World : Scene
 
 		// environment
 		{
-			if (map.SnowAmount > 0)
-				Add(new Snow(map.SnowAmount, map.SnowWind));
+			if (map.WeatherAmount > 0 && map.WeatherType != "none")
+				Add(new Weather(map.WeatherAmount, map.WeatherWind, map.WeatherType));
 
 			if (!string.IsNullOrEmpty(map.Skybox))
 			{

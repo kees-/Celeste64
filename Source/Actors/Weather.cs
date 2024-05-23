@@ -1,16 +1,25 @@
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace Celeste64;
 
-public class Snow : Actor, IHaveSprites
+public class Weather : Actor, IHaveSprites
 {
+	public string WeatherType;
 	public float Amount;
 	public Vec3 Direction;
 
-	public Snow(float amount, Vec3 direction)
+	public static readonly Dictionary<string, (int AmtMul, int DirMul, string Sprite, Color Color, float Size)> weathers = new()
 	{
-		Amount = amount;
-		Direction = direction;
+		["snow"] = (1, 1, "circle", Color.White, 0.50f),
+		["rain"] = (2, 8, "drop", new Color(0x1e90ff), 0.75f)
+	};
+
+	public Weather(float amount, Vec3 direction, string weatherType)
+	{
+		WeatherType = weatherType;
+		Amount = amount * weathers[WeatherType].AmtMul;
+		Direction = direction * weathers[WeatherType].DirMul;
 		UpdateOffScreen = true;
 	}
 
@@ -30,7 +39,7 @@ public class Snow : Actor, IHaveSprites
 			return;
 
 		var area = 100;
-		var subtex = Assets.Subtextures["circle"];
+		var subtex = Assets.Subtextures[weathers[WeatherType].Sprite];
 		var time = World.GeneralTimer;
 
 		// welcome to the land of unoptimized snow :)
@@ -71,7 +80,6 @@ public class Snow : Actor, IHaveSprites
 
 			var rng = new Rng(0);
 			var count = Calc.Lerp(0, 50, dist2d) * Amount;
-			var color = Color.White * alpha;
 
 			for (int i = 0; i < count ; i ++)
 			{
@@ -82,7 +90,7 @@ public class Snow : Actor, IHaveSprites
 					Z = z + Mod(rng.Float(area) + rng.Float(5, 25) * time * Direction.Z, area)
 				};
 
-				populate.Add(Sprite.CreateBillboard(World, point, subtex, 0.50f, color));
+				populate.Add(Sprite.CreateBillboard(World, point, subtex, weathers[WeatherType].Size, weathers[WeatherType].Color));
 			}
 		}
 	}

@@ -1,8 +1,8 @@
 @SolidClass = worldspawn : "World entity"
 [
 	skybox(string) : "SkyBox"
-	snowAmount(float) : "Amount of Snow"
-	snowDirection(vector) : "Snow move direction"
+	weatherAmount(float) : "Amount of Weather"
+	weatherDirection(vector) : "Weather move direction"
 	music(string) : "Music"
 	ambience(string) : "Ambience"
 ]

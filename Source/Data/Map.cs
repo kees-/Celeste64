@@ -25,8 +25,9 @@ public class Map
 	public readonly string Folder;
 	public readonly SledgeMap Data;
 	public readonly string Skybox;
-	public readonly float SnowAmount;
-	public readonly Vec3 SnowWind;
+	public readonly string WeatherType;
+	public readonly float WeatherAmount;
+	public readonly Vec3 WeatherWind;
 	public readonly string Music;
 	public readonly string Ambience;
 
@@ -118,8 +119,9 @@ public class Map
 		Data = format.ReadFromFile(filename);
 
 		Skybox = Data.Worldspawn.GetStringProperty("skybox", "city");
-		SnowAmount = Data.Worldspawn.GetFloatProperty("snowAmount", 1);
-		SnowWind = Data.Worldspawn.GetVectorProperty("snowDirection", -Vec3.UnitZ);
+		WeatherType = Data.Worldspawn.GetStringProperty("weatherType", "snow");
+		WeatherAmount = Data.Worldspawn.GetFloatProperty("weatherAmount", 1);
+		WeatherWind = Data.Worldspawn.GetVectorProperty("weatherDirection", -Vec3.UnitZ);
 		Music = Data.Worldspawn.GetStringProperty("music", string.Empty);
 		Ambience = Data.Worldspawn.GetStringProperty("ambience", string.Empty);
 
