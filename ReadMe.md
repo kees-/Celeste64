@@ -53,3 +53,7 @@ You can find prebuilt version of the game on [itch.io](https://maddymakesgamesin
 - We're fine with non-commercial Mods / Levels / Fan Games using assets from the `Content` folder as long as it's clear it is not made by the Celeste team or endorsed by us.
 
 </details>
+
+## Logic changes
+
+- Weather can be set in maps with `WeatherType` = `snow`, `rain`, or `none`.
