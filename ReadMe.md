@@ -54,6 +54,11 @@ You can find prebuilt version of the game on [itch.io](https://maddymakesgamesin
 
 </details>
 
-## Logic changes
+## Information
 
-- Weather can be set in maps with `WeatherType` = `snow`, `rain`, or `none`.
+- Project [LOGISTICAL](LOGISTICAL.md)
+- Todo list for [MAPPING](MAPPING.md)
+
+### Logic and gameplay
+
+- Weather can be set in maps with `WeatherType` = `snow`, `rain`, or `none`. `snowAmount` etc is deprecated
