@@ -57,7 +57,7 @@
 
 @PointClass size(-16 -16 -16, 16 16 16) = Refill : "Refill's Maddy's dashes"
 [
-    double(integer) : "Double" : 0
+    double(integer) : "Double" : 1
 ]
 
 @PointClass size(-16 -16 -16, 16 16 16) = Feather : "Lets Maddy fly for a short time"
