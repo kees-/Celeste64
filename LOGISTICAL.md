@@ -32,3 +32,8 @@
 - Overworld textures
 - Postcard back
 - Trenchbroom game config & fgd
+
+## Impl backlog
+
+- Add game type boilerplate to blender exports
+- Add global map properties to blender exports
