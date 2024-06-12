@@ -12,7 +12,7 @@
   - Music
   - Ambience
 - Dialogue art
-- Character dialogue
+- ~Character dialogue~
 - Postcard
 - ~Skyboxes~
 - All textures determined non-meaningful
