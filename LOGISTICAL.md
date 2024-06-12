@@ -14,7 +14,7 @@
 - Dialogue art
 - Character dialogue
 - Postcard
-- Skyboxes
+- ~Skyboxes~
 - All textures determined non-meaningful
 - NPC models
 - Model sourcefiles
