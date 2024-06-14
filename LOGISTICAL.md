@@ -11,8 +11,8 @@
   - Crystal, flag sound effects
   - Music
   - Ambience
-- Dialogue art
-- ~Character dialogue~
+- Dialog art
+- ~Character dialog~
 - Postcard
 - ~Skyboxes~
 - All textures determined non-meaningful

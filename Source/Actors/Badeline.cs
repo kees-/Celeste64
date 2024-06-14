@@ -3,7 +3,7 @@ namespace Celeste64;
 
 public class Badeline : NPC
 {
-	public const string TALK_FLAG = "BADELINE";
+	public const string DIALOG_ID = "BADELINE";
 
 	private readonly Hair hair;
 	private Color hairColor = 0x9B3FB5;
@@ -31,7 +31,7 @@ public class Badeline : NPC
 
         InteractHoverOffset = new Vec3(0, -2, 16);
 		InteractRadius = 32;
-		CheckForDialog();
+		CheckForDialog(DIALOG_ID);
 	}
 
     public override void Update()
@@ -67,10 +67,10 @@ public class Badeline : NPC
 		yield return Co.Run(cs.MoveToDistance(World.Get<Player>(), Position.XY(), 16));
 		yield return Co.Run(cs.FaceEachOther(World.Get<Player>(), this));
 
-		int index = Save.CurrentRecord.GetFlag(TALK_FLAG) + 1;
-		yield return Co.Run(cs.Say(Loc.Lines($"Baddy{index}")));
-		Save.CurrentRecord.IncFlag(TALK_FLAG);
-		CheckForDialog();
+		int index = Save.CurrentRecord.GetFlag(DIALOG_ID) + 1;
+		yield return Co.Run(cs.Say(Loc.Lines($"{DIALOG_ID}{index}")));
+		Save.CurrentRecord.IncFlag(DIALOG_ID);
+		CheckForDialog(DIALOG_ID);
 	}
 
     public override void CollectModels(List<(Actor Actor, Model Model)> populate)
@@ -78,9 +78,4 @@ public class Badeline : NPC
 		populate.Add((this, hair));
         base.CollectModels(populate);
     }
-
-	private void CheckForDialog()
-	{
-		InteractEnabled = Loc.HasLines($"Baddy{Save.CurrentRecord.GetFlag(TALK_FLAG) + 1}");
-	}
 }

@@ -63,3 +63,4 @@ You can find prebuilt version of the game on [itch.io](https://maddymakesgamesin
 
 - Weather can be set in maps with `WeatherType` = `snow`, `rain`, or `none`. `snowAmount` etc is deprecated
 - Levels.json can contain `Disabled` boolean flag to hide levels from the overworld
+- `TALK_FLAG` for chatty NPCs is replaced by `DIALOG_ID` and is shared with the prefix for dialog names, abstracting hardcoded values in NPC actor classes
