@@ -62,3 +62,4 @@ You can find prebuilt version of the game on [itch.io](https://maddymakesgamesin
 ### Logic and gameplay
 
 - Weather can be set in maps with `WeatherType` = `snow`, `rain`, or `none`. `snowAmount` etc is deprecated
+- Levels.json can contain `Disabled` boolean flag to hide levels from the overworld

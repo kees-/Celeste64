@@ -138,6 +138,7 @@ public static class Assets
 		{
 			var data = File.ReadAllText(Path.Join(ContentPath, "Levels.json"));
 			Levels = JsonSerializer.Deserialize(data, LevelInfoListContext.Default.ListLevelInfo) ?? [];
+			Levels = Levels.Where(l => l.Disabled != true).ToList();
 		}
 
 		// load glsl shaders

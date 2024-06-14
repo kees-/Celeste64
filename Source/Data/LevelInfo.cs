@@ -14,6 +14,7 @@ public class LevelInfo
 	public int Strawberries { get; set; } = 0;
 	public string Preview { get; set; } = string.Empty;
 	public string Map { get; set; } = string.Empty;
+	public bool Disabled { get; set; } = false;
 
 	public void Enter(ScreenWipe? toBlack = null, float holdTime = 0)
 	{
