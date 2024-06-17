@@ -42,10 +42,6 @@
     dialog(string) : "Dialog ID"
 ]
 
-@PointClass model({ "path": "Models/granny.glb", "scale": 12 }) = Granny : "She cool"
-[
-]
-
 @PointClass model({ "path": "Models/badeline.glb", "scale": 12 }) = Badeline : "She's bad"
 [
 ]
