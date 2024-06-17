@@ -36,6 +36,12 @@
     bubbleto(string) : "Bubble To" : : "If assigned, Strawberry will bubble the player"
 ]
 
+@PointClass model({ "path": "Models/granny.glb", "scale": 12 }) = GenericNPC : "Who am I?"
+[
+    model(string) : "Model"
+    dialog(string) : "Dialog ID"
+]
+
 @PointClass model({ "path": "Models/granny.glb", "scale": 12 }) = Granny : "She cool"
 [
 ]
