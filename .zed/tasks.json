@@ -18,5 +18,15 @@
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
+  },
+  {
+    "label": "Run Blender",
+    "command": "/Applications/Blender.app/Contents/MacOS/Blender",
+    //"args": [],
+    // "env": {},
+    //"cwd": "/path/to/working/directory",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
   }
 ]
