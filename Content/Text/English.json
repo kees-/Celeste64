@@ -41,6 +41,18 @@
         "Voice": "sign/general_03",
         "Text": "My name is Elyana."
       }
+    ],
+    "Tati1": [
+      {
+        "Face": "baddy/DefaultIdle",
+        "Voice": "sign/general_01",
+        "Text": "Do you know where we are?"
+      },
+      {
+        "Face": "madeline/DefaultIdle",
+        "Voice": "sign/general_01",
+        "Text": "It's Lake Balkhash."
+      }
     ]
   }
 }
