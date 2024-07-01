@@ -11,9 +11,11 @@
   - Crystal, flag sound effects
   - Music
   - Ambience
-- Dialog art
+- ~Dialog portraits~
 - ~Character dialog~
 - Postcard
+  - ~Front~
+  - Back
 - ~Skyboxes~
 - All textures determined non-meaningful
 - NPC models
@@ -35,5 +37,5 @@
 
 ## Impl backlog
 
-- Add game type boilerplate to blender exports
-- Add global map properties to blender exports
+- [x] Add game type boilerplate to blender exports
+- [ ] Add global map properties to blender exports

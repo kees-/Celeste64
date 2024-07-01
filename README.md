@@ -57,7 +57,7 @@ You can find prebuilt version of the game on [itch.io](https://maddymakesgamesin
 ## Information
 
 - Project [LOGISTICAL](LOGISTICAL.md)
-- Todo list for [MAPPING](MAPPING.md)
+- Scratchpad for [MAPPING](MAPPING.md)
 
 ### Logic and gameplay
 
