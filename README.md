@@ -54,6 +54,14 @@ You can find prebuilt version of the game on [itch.io](https://maddymakesgamesin
 
 </details>
 
-## Logic changes
+## Information
 
-- Weather can be set in maps with `WeatherType` = `snow`, `rain`, or `none`.
+- Project [LOGISTICAL](LOGISTICAL.md)
+- Scratchpad for [MAPPING](MAPPING.md)
+
+### Logic and gameplay
+
+- Weather can be set in maps with `WeatherType` = `snow`, `rain`, or `none`. `snowAmount` etc is deprecated
+- Levels.json can contain `Disabled` boolean flag to hide levels from the overworld
+- `TALK_FLAG` for chatty NPCs is replaced by `DIALOG_ID` and is shared with the prefix for dialog names, abstracting hardcoded values in NPC actor classes
+- Any static, idle NPC with an option for dialog can be created with a Trenchbroom `GenericNPC` entity, replacing the need to create classes for EVERY npc lol; use options `model` and `dialog` to point to the correct assets.

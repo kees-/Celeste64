@@ -36,8 +36,10 @@
     bubbleto(string) : "Bubble To" : : "If assigned, Strawberry will bubble the player"
 ]
 
-@PointClass model({ "path": "Models/granny.glb", "scale": 12 }) = Granny : "She cool"
+@PointClass model({ "path": "Models/granny.glb", "scale": 12 }) = GenericNPC : "Who am I?"
 [
+    model(string) : "Model"
+    dialog(string) : "Dialog ID"
 ]
 
 @PointClass model({ "path": "Models/badeline.glb", "scale": 12 }) = Badeline : "She's bad"
@@ -57,7 +59,7 @@
 
 @PointClass size(-16 -16 -16, 16 16 16) = Refill : "Refill's Maddy's dashes"
 [
-    double(integer) : "Double" : 0
+    double(integer) : "Double" : 1
 ]
 
 @PointClass size(-16 -16 -16, 16 16 16) = Feather : "Lets Maddy fly for a short time"

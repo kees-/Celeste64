@@ -11,3 +11,6 @@ Content/FMOD/celeste64/.unsaved
 
 .DS_Store
 /dotnet
+Content/Maps/1*.map
+Content/Maps/*.gz
+*.blend1

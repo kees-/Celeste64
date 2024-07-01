@@ -5,7 +5,7 @@
 "classname" "worldspawn"
 "_tb_textures" "Textures"
 "_tb_def" "external:Celeste64.fgd"
-"skybox" "bsides"
+"skybox" "RhinegoldBackdrop"
 "weatherAmount" ".5"
 "weatherDirection" "0 0 1"
 "ambience" "mountain"

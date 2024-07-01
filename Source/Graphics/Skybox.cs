@@ -33,8 +33,8 @@ public class Skybox
 		var verts = new List<SpriteVertex>();
 		var indices = new List<int>();
 
-		AddFace(verts, indices, v0, v1, v2, v3, u.TexCoords3, u.TexCoords2, u.TexCoords1, u.TexCoords0);
-		AddFace(verts, indices, v7, v6, v5, v4, d.TexCoords3, d.TexCoords2, d.TexCoords1, d.TexCoords0);
+		AddFace(verts, indices, v0, v1, v2, v3, u.TexCoords0, u.TexCoords1, u.TexCoords2, u.TexCoords3);
+		AddFace(verts, indices, v7, v6, v5, v4, d.TexCoords0, d.TexCoords1, d.TexCoords2, d.TexCoords3);
 		AddFace(verts, indices, v4, v5, v1, v0, n.TexCoords2, n.TexCoords3, n.TexCoords0, n.TexCoords1);
 		AddFace(verts, indices, v6, v7, v3, v2, s.TexCoords2, s.TexCoords3, s.TexCoords0, s.TexCoords1);
 		AddFace(verts, indices, v0, v3, v7, v4, e.TexCoords0, e.TexCoords1, e.TexCoords2, e.TexCoords3);

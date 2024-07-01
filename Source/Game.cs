@@ -72,6 +72,7 @@ public class Game : Module
 	{
 		instance = this;
 
+		App.MouseVisible = false;
 		Time.FixedStep = true;
 		App.VSync = true;
 		App.Title = GameTitle;

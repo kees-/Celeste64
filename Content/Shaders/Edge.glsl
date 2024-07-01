@@ -39,12 +39,12 @@ void main(void)
 {
 	// get depth and adjacent depth values
 	float it = depth(v_tex);
-	float other = 
+	float other =
 		depth(v_tex + vec2(u_pixel.x, 0)) * 0.25 +
 		depth(v_tex + vec2(-u_pixel.x, 0)) * 0.25 +
 		depth(v_tex + vec2(0, u_pixel.y)) * 0.25 +
 		depth(v_tex + vec2(0, -u_pixel.y)) * 0.25;
-	
+
 	// more edge the closer to the screen
 	float edge = step(0.001, other - it);
 
@@ -53,4 +53,3 @@ void main(void)
 	vec3 res = mix(col.rgb, u_edge.rgb, edge * 0.70);
 	o_color = vec4(res, col.a);
 }
-        

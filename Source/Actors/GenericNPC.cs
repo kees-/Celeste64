@@ -1,16 +1,18 @@
 ﻿
 namespace Celeste64;
 
-public class Granny : NPC
+public class GenericNPC : NPC
 {
-	public const string TALK_FLAG = "GRANNY";
+	public string DIALOG_ID;
 
-	public Granny() : base(Assets.Models["granny"])
+	public GenericNPC(string model, string dialogID) : base(Assets.Models[model])
 	{
+		DIALOG_ID = dialogID;
+		Model.Play("Idle");
 		Model.Transform = Matrix.CreateScale(3) * Matrix.CreateTranslation(0, 0, -1.5f);
 		InteractHoverOffset = new Vec3(0, -2, 16);
 		InteractRadius = 32;
-		CheckForDialog();
+		CheckForDialog(DIALOG_ID);
 	}
 
 	public override void Interact(Player player)
@@ -23,14 +25,9 @@ public class Granny : NPC
 		yield return Co.Run(cs.MoveToDistance(World.Get<Player>(), Position.XY(), 16));
 		yield return Co.Run(cs.FaceEachOther(World.Get<Player>(), this));
 
-		int index = Save.CurrentRecord.GetFlag(TALK_FLAG) + 1;
-		yield return Co.Run(cs.Say(Loc.Lines($"Granny{index}")));
-		Save.CurrentRecord.IncFlag(TALK_FLAG);
-		CheckForDialog();
-	}
-
-	private void CheckForDialog()
-	{
-		InteractEnabled = Loc.HasLines($"Granny{Save.CurrentRecord.GetFlag(TALK_FLAG) + 1}");
+		int index = Save.CurrentRecord.GetFlag(DIALOG_ID) + 1;
+		yield return Co.Run(cs.Say(Loc.Lines($"{DIALOG_ID}{index}")));
+		Save.CurrentRecord.IncFlag(DIALOG_ID);
+		CheckForDialog(DIALOG_ID);
 	}
 }

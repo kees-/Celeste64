@@ -45,7 +45,7 @@ public class Map
 			map.LoadStrawberryCounter++;
 			return new Strawberry(id, isLocked, lockedCondition, playUnlockSound, bubbleTo);
 		}),
-		["Refill"] = new((map, entity) => new Refill(entity.GetIntProperty("double", 0) > 0)),
+		["Refill"] = new((map, entity) => new Refill(entity.GetIntProperty("double", 1) > 0)),
 		["Cassette"] = new((map, entity) => new Cassette(entity.GetStringProperty("map", string.Empty))),
 		["Coin"] = new((map, entity) => new Coin()),
 		["Feather"] = new((map, entity) => new Feather()),
@@ -65,7 +65,7 @@ public class Map
 		["DeathBlock"] = new((map, entity) => new DeathBlock()) { UseSolidsAsBounds = true },
 		["SpikeBlock"] = new((map, entity) => new SpikeBlock()) { UseSolidsAsBounds = true },
 		["Spring"] = new((map, entity) => new Spring()),
-		["Granny"] = new((map, entity) => new Granny()),
+		["GenericNPC"] = new((map, entity) => new GenericNPC(entity.GetStringProperty("model", "granny"), entity.GetStringProperty("dialog", string.Empty))),
 		["Badeline"] = new((map, entity) => new Badeline()),
 		["SignPost"] = new((map, entity) => new Signpost(entity.GetStringProperty("dialog", string.Empty))),
 		["StaticProp"] = new((map, entity) =>

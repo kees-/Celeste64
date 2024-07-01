@@ -31,6 +31,11 @@ public abstract class NPC : Actor, IHaveModels, IHaveSprites, IHavePushout, ICas
 
 	public abstract void Interact(Player player);
 
+	public void CheckForDialog(string dialogID)
+	{
+		InteractEnabled = Loc.HasLines($"{dialogID}{Save.CurrentRecord.GetFlag(dialogID) + 1}");
+	}
+
 	public override void Update()
 	{
 		if (World.Camera.Frustum.Contains(WorldBounds))

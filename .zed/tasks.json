@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Run game",
+    "command": "./bin/Release/net8.0/osx-x64/Celeste64",
+    //"args": [],
+    "env": {},
+    //"cwd": "/path/to/working/directory",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Build and run game",
+    "command": "dotnet build Celeste64.csproj -c Release && ./bin/Release/net8.0/osx-x64/Celeste64",
+    //"args": [],
+    "env": {},
+    //"cwd": "/path/to/working/directory",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Run Blender",
+    "command": "/Applications/Blender.app/Contents/MacOS/Blender",
+    //"args": [],
+    // "env": {},
+    //"cwd": "/path/to/working/directory",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]
