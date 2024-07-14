@@ -13,9 +13,9 @@
   - Ambience
 - ~Dialog portraits~
 - ~Character dialog~
-- Postcard
+- ~Postcard~
   - ~Front~
-  - Back
+  - ~Back~
 - ~Skyboxes~
 - All textures determined non-meaningful
 - NPC models
