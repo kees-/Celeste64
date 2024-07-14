@@ -93,8 +93,8 @@ public static class Audio
 		attr.up.x = camera.Up.X;
 		attr.up.y = camera.Up.Y;
 		attr.up.z = camera.Up.Z;
-		attr.position.x = -camera.Position.X;
-		attr.position.y = -camera.Position.Y;
+		attr.position.x = camera.Position.X;
+		attr.position.y = camera.Position.Y;
 		attr.position.z = camera.Position.Z;
 		attr.velocity.x = 0;
 		attr.velocity.y = 0;
