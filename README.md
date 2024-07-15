@@ -65,3 +65,4 @@ You can find prebuilt version of the game on [itch.io](https://maddymakesgamesin
 - Levels.json can contain `Disabled` boolean flag to hide levels from the overworld
 - `TALK_FLAG` for chatty NPCs is replaced by `DIALOG_ID` and is shared with the prefix for dialog names, abstracting hardcoded values in NPC actor classes
 - Any static, idle NPC with an option for dialog can be created with a Trenchbroom `GenericNPC` entity, replacing the need to create classes for EVERY npc lol; use options `model` and `dialog` to point to the correct assets.
+- Boomboxes can be placed in levels that control the music based on an entity parameter `event`, emitting spatialized audio from its location. Choose an unprefixed looping music event as a parameter, such as `boombox_kees_heartbreaker`.

@@ -3,7 +3,6 @@ namespace Celeste64;
 
 public class Boombox : Actor, IHaveModels, IPickup, IHaveSprites, ICastPointShadow
 {
-	public SkinnedModel CollectedModel;
 	public SkinnedModel Model;
 	public float PointShadowAlpha { get; set; } = 1.0f;
 	public string Event;
@@ -18,13 +17,11 @@ public class Boombox : Actor, IHaveModels, IPickup, IHaveSprites, ICastPointShad
 		Event = ev;
 		LocalBounds = new BoundingBox(Vec3.Zero, 3);
 		Model = new(Assets.Models["boombox"]);
-		CollectedModel = new(Assets.Models["boombox"]);
-		CollectedModel.Flags = ModelFlags.Transparent;
-		foreach (var mat in CollectedModel.Materials)
+		foreach (var mat in Model.Materials)
 			mat.Color = Color.White * 0.50f;
 	}
 
-	public float PickupRadius => 10;
+	public float PickupRadius => 15;
 
 	public bool IsCollected => false;
 
@@ -40,15 +37,6 @@ public class Boombox : Actor, IHaveModels, IPickup, IHaveSprites, ICastPointShad
 		tCooldown = 3.5f;
 	}
 
-	public void Enable()
-	{
-		tWiggle = 1.0f;
-		spinSpeed = 2.25f;
-		wiggleMult = 1.75f;
-		foreach (var mat in Model.Materials)
-			mat.Color = Color.White;
-	}
-
 	public override void Update()
 	{
 		PointShadowAlpha = IsCollected ? 0.5f : 1.0f;
@@ -60,12 +48,12 @@ public class Boombox : Actor, IHaveModels, IPickup, IHaveSprites, ICastPointShad
 	{
 		var wiggle = 1 + MathF.Sin(tWiggle * MathF.Tau * 2) * .8f * tWiggle;
 
-		Model.Transform = CollectedModel.Transform =
+		Model.Transform = Model.Transform =
 			Matrix.CreateScale(Vec3.One * 2.5f * wiggle) *
 			Matrix.CreateTranslation(Vec3.UnitZ * MathF.Sin(World.GeneralTimer * wiggleMult) * 2) *
 			Matrix.CreateRotationZ(World.GeneralTimer * spinSpeed);
 
-		populate.Add((this, IsCollected? CollectedModel : Model));
+		populate.Add((this, Model));
 	}
 
 	public void Pickup(Player player)
@@ -75,9 +63,14 @@ public class Boombox : Actor, IHaveModels, IPickup, IHaveSprites, ICastPointShad
 			UpdateOffScreen = true;
 			SetCooldown();
 			World.HitStun = 0.05f;
+			Game.Instance.Music.Stop();
 			Audio.Play(Sfx.sfx_cassette_enter, Position);
-			Audio.Play($"event:/music/{Event}", Position);
-			Enable();
+			Game.Instance.Music = Audio.Play($"event:/music/{Event}", Position);
+			tWiggle = 1.0f;
+			spinSpeed = 2.0f;
+			wiggleMult = 1.75f;
+			foreach (var mat in Model.Materials)
+				mat.Color = Color.White;
 		}
 	}
 
