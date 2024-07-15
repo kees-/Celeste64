@@ -72,6 +72,11 @@
     map(string) : "Map"
 ]
 
+@PointClass size(-16 -16 -16, 16 16 16) = Boombox : "Touch to start/stop music"
+[
+    event(string) : "Event"
+]
+
 @PointClass size(-16 -16 -16, 16 16 16) = Coin : "Collect em all to open a gate block"
 [
 

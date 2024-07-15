@@ -46,6 +46,7 @@ public class Map
 			return new Strawberry(id, isLocked, lockedCondition, playUnlockSound, bubbleTo);
 		}),
 		["Refill"] = new((map, entity) => new Refill(entity.GetIntProperty("double", 1) > 0)),
+		["Boombox"] = new((map, entity) => new Boombox(entity.GetStringProperty("event", string.Empty))),
 		["Cassette"] = new((map, entity) => new Cassette(entity.GetStringProperty("map", string.Empty))),
 		["Coin"] = new((map, entity) => new Coin()),
 		["Feather"] = new((map, entity) => new Feather()),

@@ -39,3 +39,7 @@
 
 - [x] Add game type boilerplate to blender exports
 - [ ] Add global map properties to blender exports
+
+## Asset credits
+
+- [Booombox - Free 3D Model By Poly by Google - Poly Pizza](https://poly.pizza/m/56XYDxnVVM3)
