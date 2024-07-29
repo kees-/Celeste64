@@ -16,7 +16,7 @@ public class Boombox : Actor, IHaveModels, IPickup, IHaveSprites, ICastPointShad
 	{
 		Event = ev;
 		LocalBounds = new BoundingBox(Vec3.Zero, 3);
-		Model = new(Assets.Models["boombox"]);
+		Model = new(Assets.Models["Kees/boombox"]);
 		foreach (var mat in Model.Materials)
 			mat.Color = Color.White * 0.50f;
 	}
