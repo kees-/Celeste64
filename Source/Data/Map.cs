@@ -71,7 +71,7 @@ public class Map
 		["SignPost"] = new((map, entity) => new Signpost(entity.GetStringProperty("dialog", string.Empty))),
 		["StaticProp"] = new((map, entity) =>
 		{
-			var prop = Path.GetFileNameWithoutExtension(entity.GetStringProperty("model", string.Empty));
+		var prop = Path.ChangeExtension(Path.GetRelativePath("Models", entity.GetStringProperty("model", string.Empty)), null);
 			if (Assets.Models.TryGetValue(prop, out var model))
 			{
 				return new StaticProp(model,
