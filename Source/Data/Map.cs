@@ -65,7 +65,7 @@ public class Map
 		["DeathBlock"] = new((map, entity) => new DeathBlock()) { UseSolidsAsBounds = true },
 		["SpikeBlock"] = new((map, entity) => new SpikeBlock()) { UseSolidsAsBounds = true },
 		["Spring"] = new((map, entity) => new Spring()),
-		["GenericNPC"] = new((map, entity) => new GenericNPC(entity.GetStringProperty("model", "granny"), entity.GetStringProperty("dialog", string.Empty))),
+		["GenericNPC"] = new((map, entity) => new GenericNPC(entity.GetStringProperty("model", "tati"), entity.GetStringProperty("dialog", string.Empty))),
 		["Badeline"] = new((map, entity) => new Badeline()),
 		["SignPost"] = new((map, entity) => new Signpost(entity.GetStringProperty("dialog", string.Empty))),
 		["StaticProp"] = new((map, entity) =>
