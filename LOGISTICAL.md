@@ -18,8 +18,10 @@
   - ~Back~
 - ~Skyboxes~
 - All textures determined non-meaningful
-- NPC models
-- Model sourcefiles
+- Models
+  - NPC models
+  - ~Static prop models~
+  - Model sourcefiles
 
 ### To clear before release
 
