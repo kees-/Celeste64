@@ -70,13 +70,22 @@ public class Map
 		["SignPost"] = new((map, entity) => new Signpost(entity.GetStringProperty("dialog", string.Empty))),
 		["StaticProp"] = new((map, entity) =>
 		{
-		var prop = Path.ChangeExtension(Path.GetRelativePath("Models", entity.GetStringProperty("model", string.Empty)), null);
+			var prop = Path.ChangeExtension(Path.GetRelativePath("Models", entity.GetStringProperty("model", string.Empty)), null);
 			if (Assets.Models.TryGetValue(prop, out var model))
 			{
 				return new StaticProp(model,
 					entity.GetIntProperty("radius", 6),
 					entity.GetIntProperty("height", 10)
 				);
+			}
+			return null;
+		}),
+		["SolidMesh"] = new((map, entity) =>
+		{
+			var mesh = Path.ChangeExtension(Path.GetRelativePath("Models", entity.GetStringProperty("model", string.Empty)), null);
+			if (Assets.Models.TryGetValue(mesh, out var model))
+			{
+				return new SolidMesh(model, entity.GetFloatProperty("scale", 6));
 			}
 			return null;
 		}),

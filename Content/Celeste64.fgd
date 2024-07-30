@@ -24,6 +24,15 @@
 	height(integer) : "Height" : 12 : "Pushout Height"
 ]
 
+@PointClass size(-16 -16 0, 16 16 16) model({ "path": model, "scale": scale} ) = SolidMesh : "Solid Mesh"
+[
+    model(String) : "Model file path" : : "Set this to a 3D model file."
+    scale(float) : "Scale"
+    angle(integer) : "Object Rotation"
+    climbable(string)  : "Is this climbable" : "true"
+    canwalljump(string)  : "Can the player wall jump off of this" : "true"
+]
+
 @PointClass size(-16 -16 0, 16 16 32) = PlayerSpawn : "Player start position"
 [
     name(string) : "Name" : "Start"
