@@ -13,6 +13,12 @@ public class Solid : Actor, IHaveModels
 	/// </summary>
 	public bool Transparent = false;
 
+	// FUJI
+	/// <summary>
+	/// If we're currently climbable
+	/// </summary>
+	public bool Climbable = true;
+
 	/// <summary>
 	/// Visual Model to Draw
 	/// </summary>
@@ -49,6 +55,9 @@ public class Solid : Actor, IHaveModels
 			return worldFaces;
 		}
 	}
+
+	// FUJI
+	public virtual bool IsClimbable => Climbable;
 
 	public Vec3 Velocity = Vec3.Zero;
 

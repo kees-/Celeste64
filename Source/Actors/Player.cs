@@ -844,9 +844,13 @@ public class Player : Actor, IHaveModels, IHaveSprites, IRidePlatforms, ICastPoi
 
 	private bool ClimbCheckAt(Vec3 offset, out WallHit hit)
 	{
-		if (World.SolidWallCheckClosestToNormal(SolidWaistTestPos + offset, ClimbCheckDist, -new Vec3(targetFacing, 0), out hit)
+	  // FUJI
+	  if (World.SolidWallCheckClosestToNormal(SolidWaistTestPos + offset, ClimbCheckDist, -new Vec3(targetFacing, 0), out hit, static solid => solid.IsClimbable)
 		&& (RelativeMoveInput == Vec2.Zero || Vec2.Dot(hit.Normal.XY().Normalized(), RelativeMoveInput) <= -0.5f)
-		&& ClimbNormalCheck(hit.Normal))
+		&& ClimbNormalCheck(hit.Normal)
+		// FUJI
+		// Prevent climbing if we're facing a non-climbable solid
+		&& !(World.SolidRayCast(SolidWaistTestPos + offset, new Vec3(targetFacing, 0), ClimbCheckDist + 1.0f, out var nonClimbableHit) && nonClimbableHit.Actor is Solid { IsClimbable: false }))
 			return true;
 		return false;
 	}

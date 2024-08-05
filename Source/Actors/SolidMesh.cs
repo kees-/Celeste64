@@ -1,5 +1,6 @@
 namespace Celeste64;
 
+// FUJI
 public class SolidMesh : Solid
 {
 	public readonly SkinnedModel ObjectModel;

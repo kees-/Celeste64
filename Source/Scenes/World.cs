@@ -479,7 +479,7 @@ public class World : Scene
 		return closest.HasValue;
 	}
 
-	public StackList8<WallHit> SolidWallCheck(in Vec3 point, float radius)
+	public StackList8<WallHit> SolidWallCheck(in Vec3 point, float radius, Func<Solid, bool>? predicate = null)
 	{
 		var radiusSquared = radius * radius;
 		var flatPlane = new Plane(Vec3.UnitZ, point.Z);
@@ -496,6 +496,10 @@ public class World : Scene
 			if (!solid.WorldBounds.Inflate(radius).Contains(point))
 				continue;
 
+			// FUJI
+			if (predicate != null && !predicate(solid))
+				continue;
+
 			var verts = solid.WorldVertices;
 			var faces = solid.WorldFaces;
 
@@ -506,7 +510,7 @@ public class World : Scene
 				if (face.Plane.Normal.Z <= -1 || face.Plane.Normal.Z >= 1)
 					continue;
 
-				// igore planes that are definitely too far away
+			  // ignore planes that are definitely too far away
 				var distanceToPlane = Utils.DistanceToPlane(point, face.Plane);
 				if (distanceToPlane < 0 || distanceToPlane > radius)
 					continue;
@@ -574,9 +578,10 @@ public class World : Scene
 		}
 	}
 
-	public bool SolidWallCheckClosestToNormal(in Vec3 point, float radius, Vec3 normal, out WallHit hit)
+	public bool SolidWallCheckClosestToNormal(in Vec3 point, float radius, Vec3 normal, out WallHit hit, Func<Solid, bool>? predicate = null)
 	{
-		var hits = SolidWallCheck(point, radius);
+	  // FUJI
+		var hits = SolidWallCheck(point, radius, predicate);
 		if (hits.Count > 0)
 		{
 			hit = hits[0];

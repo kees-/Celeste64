@@ -286,11 +286,20 @@ public class Map
 	{
 		void HandleActorCreation(World world, SledgeEntity entity, Actor it, ActorFactory? factory)
 		{
-			if ((factory?.IsSolidGeometry ?? false) && it is Solid solid)
+		  if (it is Solid solid)
 			{
-				List<SledgeSolid> collection = [];
-				CollectSolids(entity, collection);
-				GenerateSolid(solid, collection);
+		    if ((factory?.IsSolidGeometry ?? false))
+				{
+				  List<SledgeSolid> collection = [];
+					CollectSolids(entity, collection);
+					GenerateSolid(solid, collection);
+				}
+				// FUJI
+				if (entity.Properties.ContainsKey("climbable"))
+				{
+					string climbable = entity.GetStringProperty("climbable", "true").ToLower();
+					solid.Climbable = climbable != "false" && climbable != "0";
+				}
 			}
 
 			if (entity.Properties.ContainsKey("origin"))
