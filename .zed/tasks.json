@@ -1,7 +1,7 @@
 [
   {
     "label": "Run game",
-    "command": "./bin/Release/net8.0/osx-x64/Celeste64",
+    "command": "pwd && ./bin/Release/net8.0/osx-x64/Celeste64",
     //"args": [],
     "env": {},
     //"cwd": "/path/to/working/directory",
